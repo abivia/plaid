@@ -1,0 +1,7 @@
+/.env
+/.env.testing
+/.idea/
+/vendor/
+/src/Commands/PlaidExampleCommand.php
+/.phpunit.result.cache
+/composer.lock
