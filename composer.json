@@ -13,10 +13,6 @@
             "name": "Alan Langford",
             "email": "foss@abivia.com",
             "role": "Developer"
-        },
-        {
-            "name": "Brent Scheffler",
-            "email": "brent@tomorrow.me"
         }
     ],
     "require": {
@@ -60,6 +56,12 @@
             }
         }
     },
+    "funding": [
+        {
+            "type": "ko-fi",
+            "url": "https://ko-fi.com/P5P47JJXZ"
+        }
+    ],
     "allow-plugins": {
         "pestphp/pest-plugin": true
     },
