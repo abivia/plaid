@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Http;
  */
 class AuthTest extends TestCase
 {
-    public function test_get_auth(): void
+    public function testGetAuth(): void
     {
         $psrResponse = new PsrResponse(200, [], '{}');
         Http::shouldReceive('post')

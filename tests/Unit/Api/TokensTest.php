@@ -394,7 +394,7 @@ class TokensTest extends TestCase
         );
     }
 
-    public function test_get_token(): void
+    public function testGetToken(): void
     {
         $psrResponse = (new PsrResponse(200, [], '{}'));
         Http::shouldReceive('post')
