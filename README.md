@@ -1,8 +1,7 @@
 # Plaid for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/abivia/plaid.svg?style=flat-square)](https://packagist.org/packages/abivia/plaid)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/abivia/plaid/run-tests?label=tests)](https://github.com/abivia/plaid/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/abivia/plaid/Check%20&%20fix%20styling?label=code%20style)](https://github.com/abivia/plaid/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![License](https://img.shields.io/github/license/abivia/plaid.svg?style=flat-square)](https://packagist.org/packages/abivia/plaid)
 [![Total Downloads](https://img.shields.io/packagist/dt/abivia/plaid.svg?style=flat-square)](https://packagist.org/packages/abivia/plaid)
 
 A fluent Laravel package for Plaid (https://plaid.com).

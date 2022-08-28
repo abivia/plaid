@@ -43,6 +43,7 @@ class BankTransfers extends AbstractResource
      * @param string|null $originationAccountId
      * @return BankTransfers
      * @throws PlaidRequestException
+     * @SuppressWarnings(PHPMD.ExcessiveParameterList)
      */
     public function create(
         string $accessToken,
@@ -187,6 +188,7 @@ class BankTransfers extends AbstractResource
      * @param string|null $originationAccountId
      * @return BankTransfers
      * @throws PlaidRequestException
+     * @SuppressWarnings(PHPMD.ExcessiveParameterList)
      */
     public function listEvents(
         ?Carbon $startDate = null,
@@ -201,6 +203,16 @@ class BankTransfers extends AbstractResource
         ?string $originationAccountId = null
     ): self
     {
+        static $argMap = [
+            'accountId' => 'account_id',
+            'bankTransferId' => 'bank_transfer_id',
+            'bankTransferType' => 'bank_transfer_type',
+            'direction' => 'direction',
+            'count' => 'count',
+            'eventType' => 'event_type',
+            'offset' => 'offset',
+            'originationAccountId' => 'origination_account_id',
+        ];
         $params = [];
 
         if ($startDate) {
@@ -209,29 +221,10 @@ class BankTransfers extends AbstractResource
         if ($endDate) {
             $params['end_date'] = $endDate->format('c');
         }
-        if ($bankTransferId) {
-            $params['bank_transfer_id'] = $bankTransferId;
-        }
-        if ($accountId) {
-            $params['account_id'] = $accountId;
-        }
-        if ($bankTransferType) {
-            $params['bank_transfer_type'] = $bankTransferType;
-        }
-        if ($eventType) {
-            $params['event_type'] = $eventType;
-        }
-        if ($count) {
-            $params['count'] = $count;
-        }
-        if ($offset) {
-            $params['offset'] = $offset;
-        }
-        if ($direction) {
-            $params['direction'] = $direction;
-        }
-        if ($originationAccountId) {
-            $params['origination_account_id'] = $originationAccountId;
+        foreach ($argMap as $argument => $param) {
+            if ($$argument !== null) {
+                $params[$param] = $$argument;
+            }
         }
 
         $this->sendRequest('bank_transfer/event/list', $params);

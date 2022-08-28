@@ -26,6 +26,7 @@ class Tokens extends AbstractResource
      * @param string|null $institutionId
      * @return Tokens
      * @throws PlaidRequestException
+     * @SuppressWarnings(PHPMD.ExcessiveParameterList)
      */
     public function create(
         string $clientName,
@@ -42,6 +43,14 @@ class Tokens extends AbstractResource
         ?string $paymentId = null,
         ?string $institutionId = null): self
     {
+        static $argMap = [
+            'accessToken' => 'access_token',
+            'androidPackageName' => 'android_package_name',
+            'institutionId' => 'institution_id',
+            'linkCustomizationName' => 'link_customization_name',
+            'redirectUri' => 'redirect_uri',
+            'webhook' => 'webhook',
+        ];
 
         $params = [
             'client_name' => $clientName,
@@ -50,31 +59,18 @@ class Tokens extends AbstractResource
             'user' => $user->toArray(),
             'products' => $products
         ];
-        if ($webhook) {
-            $params['webhook'] = $webhook;
-        }
-        if ($linkCustomizationName) {
-            $params['link_customization_name'] = $linkCustomizationName;
+        foreach ($argMap as $argument => $param) {
+            if ($$argument !== null) {
+                $params[$param] = $$argument;
+            }
         }
         if ($accountFilters) {
             $params['account_filters'] = $accountFilters->toArray();
-        }
-        if ($accessToken) {
-            $params['access_token'] = $accessToken;
-        }
-        if ($redirectUri) {
-            $params['redirect_uri'] = $redirectUri;
-        }
-        if ($androidPackageName) {
-            $params['android_package_name'] = $androidPackageName;
         }
         if ($paymentId) {
             $params['payment_initiation'] = [
                 'payment_id' => $paymentId
             ];
-        }
-        if ($institutionId) {
-            $params['institution_id'] = $institutionId;
         }
 
         $this->sendRequest('link/token/create', $params);
