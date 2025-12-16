@@ -5,3 +5,4 @@
 /src/Commands/PlaidExampleCommand.php
 /.phpunit.result.cache
 /composer.lock
+/composer.phar
