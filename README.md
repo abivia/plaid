@@ -35,7 +35,7 @@ camel case**.
 ## Requirements
 
 * PHP 8.0+
-* Laravel 8+
+* Laravel 8, 9, 10, 11, 12, or 13
 
 ## Installation
 
